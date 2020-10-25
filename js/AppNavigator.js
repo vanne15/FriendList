@@ -25,7 +25,8 @@ function HomeStack() {
                     const friend = route.params.friend;
                     return {
                         headerBackTitle: 'Back',
-                        headerTitle: friend
+                        //headerTitle: friend.first + ' ' + friend.last
+                        headerTitle: `${friend.first} ${friend.last}` //eleganter  mit ` Backtick für Template Strings
                     }
                 }}
             />

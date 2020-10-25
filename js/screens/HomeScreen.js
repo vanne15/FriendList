@@ -7,16 +7,17 @@ export default class Home extends Component {
             <View style={styles.container}>
                 <FlatList
                     data={[
-                        { name: 'Alice' },
-                        { name: 'Bob' },
-                        { name: 'Claudia' },
-                        { name: 'Doro' },
+                        { first: 'Anton', last: 'smith', email: 'test1@example.com' },
+                        { first: 'Berta', last: 'smith', email: 'test2@example.com' },
+                        { first: 'Cesar', last: 'smith', email: 'test3@example.com' },
+                        { first: 'Dora', last: 'smith', email: 'test4@example.com' },
+                        { first: 'Emil', last: 'smith', email: 'test5@example.com' },
                     ]}
-                    keyExtractor={item => item.name} //Dynamisch generierter Key auch moeglich
+                    keyExtractor={item => item.email} //Dynamisch generierter Key auch moeglich
                     renderItem={({ item }) => (
                         //FriendListItem
                         <FriendListItem friend={item} onPress={() =>
-                            this.props.navigation.navigate('FriendScreen', { friend: item.name })} />)}
+                            this.props.navigation.navigate('FriendScreen', { friend: item })} />)}
                     ItemSeparatorComponent={() => <View style={styles.listSeperator} />}
                 />
 
