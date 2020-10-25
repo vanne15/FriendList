@@ -4,11 +4,23 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/HomeScreen';
 import SettingsScreen from './screens/SettingsScreen';
-
+import FriendScreen from './screens/FriendScreen';
 import * as Icon from '@expo/vector-icons';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
+function HomeStack() {
+    return (
+
+        <Stack.Navigator>
+            <Stack.Screen name="HomeScreen" component={HomeScreen} />
+            <Stack.Screen name="FriendScreen" component={FriendScreen} />
+        </Stack.Navigator>
+
+    )
+}
 export default function AppNavigator() {
     return (
         <NavigationContainer>
@@ -38,7 +50,7 @@ export default function AppNavigator() {
             >
                 <Tab.Screen
                     name="Home"
-                    component={HomeScreen}
+                    component={HomeStack}
                     options={{
                         title: 'Freunde'
                     }}
