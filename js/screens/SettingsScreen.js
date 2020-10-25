@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
+
+function SettingsItem(props) {
+    return <Text style={styles.item}>{props.text}</Text>;
+}
+
+function SettingsHeader(props) {
+    return <Text style={styles.section}>{props.text}</Text>;
+}
+
 export default class Settings extends Component {
     render() {
         return (
@@ -7,26 +16,25 @@ export default class Settings extends Component {
                 <SectionList
                     sections={[
                         {
-                            title: 'Abschnitt Obst',
+                            title: 'Version',
                             data: [
-                                { name: 'Ananas' },
-                                { name: 'Banane' },
-                                { name: 'Clementine' },
-                                { name: 'Dattel' },
+                                { key: '1', info: '1,0' }
                             ]
                         },
                         {
-                            title: 'Abschnitt Länder',
+                            title: 'Impressum',
                             data: [
-                                { name: 'Albanien' },
-                                { name: 'Belgien' },
-                                { name: 'China' },
-                                { name: 'Dänemark' },
+                                { key: '2', info: 'Beispiel GmbH' },
+                                { key: '3', info: 'Copyright 2020' },
                             ]
                         }
                     ]}
-                    renderItem={({ item }) => <Text>{item.name}</Text>}
-                    renderSectionHeader={({ section }) => <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{section.title}</Text>}
+                    renderItem={({ item }) =>
+                        <SettingsItem text={item.info} />
+                    }
+                    renderSectionHeader={({ section }) =>
+                        <SettingsHeader text={section.title} />
+                    }
                 />
             </View>
         );
@@ -38,8 +46,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 30
+        paddingTop: 30,
     },
+    section: {
+        backgroundColor: 'whitesmoke',
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: 'lightgrey',
+        fontSize: 18,
+        padding: 5
+    },
+    item: {
+        color: 'dimgrey',
+        fontSize: 18,
+        padding: 5
+    }
 });
