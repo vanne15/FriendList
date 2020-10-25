@@ -31,6 +31,10 @@ export default function AppNavigator() {
                         }
                     }
                 }}
+                tabBarOptions={{
+                    activeTintColor: 'orange',
+                    style: { backgroundColor: 'aliceblue' }
+                }}
             >
                 <Tab.Screen
                     name="Home"
