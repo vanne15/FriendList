@@ -6,11 +6,12 @@ export default class Home extends Component {
             <View style={styles.container}>
                 <FlatList
                     data={[
-                        { key: '1', name: 'Alice' },
-                        { key: '2', name: 'Bob' },
-                        { key: '3', name: 'Claudia' },
-                        { key: '4', name: 'Doro' },
+                        { name: 'Alice' },
+                        { name: 'Bob' },
+                        { name: 'Claudia' },
+                        { name: 'Doro' },
                     ]}
+                    keyExtractor={item => item.name} //Dynamisch generierter Key auch moeglich
                     renderItem={({ item }) => (<Button title={`gehe zu ${item.name}`} onPress={() =>
                         this.props.navigation.navigate('FriendScreen', { friend: item.name })} />)}
                 />
