@@ -5,7 +5,7 @@ export default class FriendScreen extends Component {
         const friend = this.props.route.params.friend;
         return (
             <ScrollView contentContainerStyle={styles.container} style={styles.scrollView}>
-                <Image style={styles.image} source={require('../../assets/icon.png')} />
+                <Image style={styles.image} source={{ uri: friend.picture.large }} />
 
                 <Text>Freund {friend.name.first} {friend.name.last}</Text>
                 <Text>Email: {friend.email}</Text>

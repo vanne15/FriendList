@@ -4,6 +4,11 @@ import FriendListItem from './../components/FriendListItem';
 export default class Home extends Component {
     state = { data: [], isLoading: true };
 
+    _refresh = () => {
+        this.setState({ isLoading: true });
+        this._fetchData();
+    }
+
     _fetchData = async () => {
         try {
             const response = await fetch('https://randomuser.me/api/?results=20');
@@ -44,6 +49,8 @@ export default class Home extends Component {
                     ListEmptyComponent={() => (
                         <Text style={styles.listEmpty}>Keine Daten geladen</Text>
                     )}
+                    onRefresh={this._refresh}
+                    refreshing={this.state.isLoading}
                 />
 
             </View>

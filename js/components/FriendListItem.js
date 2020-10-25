@@ -6,7 +6,7 @@ export default function (props) {
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.container}>
-                <Image style={styles.image} source={require('../../assets/icon.png')} />
+                <Image style={styles.image} source={{ uri: friend.picture.thumbnail }} />
                 <View style={styles.info}>
                     <Text style={styles.text}>{friend.name.first} {friend.name.last}</Text>
                     <Text style={styles.smallText}>{friend.email}</Text>
