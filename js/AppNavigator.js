@@ -14,9 +14,21 @@ const Stack = createStackNavigator();
 function HomeStack() {
     return (
 
-        <Stack.Navigator>
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            <Stack.Screen name="FriendScreen" component={FriendScreen} />
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: { backgroundColor: 'aliceblue' }
+            }}
+        >
+            <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="FriendScreen" component={FriendScreen}
+                options={({ route }) => {
+                    const friend = route.params.friend;
+                    return {
+                        headerBackTitle: 'Back',
+                        headerTitle: friend
+                    }
+                }}
+            />
         </Stack.Navigator>
 
     )
