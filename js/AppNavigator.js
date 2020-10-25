@@ -18,12 +18,15 @@ export default function AppNavigator() {
                     component={HomeScreen}
                     options={{
                         title: 'Freunde',
-                        tabBarIcon: ({ focused, size, color }) =>
-                            <Icon.MaterialIcons
-                                name="home"
+                        tabBarIcon: (object) => {
+                            const { focused, size, color } = object; //Destruierendes Object
+                            const icon = focused ? 'home' : 'home-outline';
+                            return (<Icon.MaterialCommunityIcons
+                                name={icon}
                                 size={size}
                                 color={color}
-                            />
+                            />); //Für den Fall das man mal mehere Zeilen benötigt (Beispiel weiter unten einzeilig)
+                        }
                     }}
                 />
                 <Tab.Screen
