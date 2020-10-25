@@ -26,9 +26,10 @@ function HomeStack() {
                     return {
                         headerBackTitle: 'Back',
                         //headerTitle: friend.first + ' ' + friend.last
-                        headerTitle: `${friend.first} ${friend.last}` //eleganter  mit ` Backtick für Template Strings
+                        headerTitle: `${friend.name.first} ${friend.name.last}` //eleganter  mit ` Backtick für Template Strings
                     }
                 }}
+
             />
         </Stack.Navigator>
 

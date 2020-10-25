@@ -7,7 +7,7 @@ export default class FriendScreen extends Component {
             <ScrollView contentContainerStyle={styles.container} style={styles.scrollView}>
                 <Image style={styles.image} source={require('../../assets/icon.png')} />
 
-                <Text>Freund {friend.first} {friend.last}</Text>
+                <Text>Freund {friend.name.first} {friend.name.last}</Text>
                 <Text>Email: {friend.email}</Text>
                 <Button title="gehe zurück" onPress={() => this.props.navigation.goBack()} />
             </ScrollView>
